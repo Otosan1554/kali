@@ -48,7 +48,7 @@ echo "Powercatの導入"
 sudo apt install powercat
 
 echo "Empireの導入"
-apt install Empire
+apt install empire
 
 echo "Shelterのインストール"
 sudo apt install shellter
@@ -67,15 +67,6 @@ apt install python3-pip
 
 echo "Autoreconの導入"
 pip install git+https://github.com/Tib3rius/AutoRecon.git
-
-echo "Smbverchkの導入"
-rm -r /home/kali/SMBverchk
-mkdir /home/kali/SMBverchk
-cd /home/kali
-git clone https://github.com/Otosan1554/kali/blob/main/SMBverchk.sh /home/kali/SMBverchk.sh
-cp -r /home/kali/OSCP/ /home/lkali/SMBverchk
-rm -r /home/kali/OSCP
-sudo chmod 777 /home/kali/SMBverchk.sh
 
 echo "onetwopunchの導入"
 rm /home/kali/onetwopunch.sh
@@ -126,6 +117,9 @@ echo "CMSmapの導入"
 rm -r
 cd /home/kali
 git clone https://github.com/Dionach/CMSmap
+
+echo "Apache配下への移動"
+
 
 echo "次のブラウザアドオンを導入します"
 echo "Web Developerアドオン"
