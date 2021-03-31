@@ -47,7 +47,7 @@ sudo apt-get install seclists
 echo "Powercatの導入"
 sudo apt install powercat
 
-#echo "Empireの導入"
+echo "Empireの導入"
 apt install Empire
 
 echo "Shelterのインストール"
@@ -104,19 +104,9 @@ python3 -m pip install -r requirements.txt
 echo "parseroの導入"
 apt install parsero
 
-echo "OpenVASのインストールと起動"
-apt install -y gvm 
-gvm-setup
-gvm-start
-
 echo "Heartbleed exploitの導入"
 cd /home/kali
 git clone https://github.com/sensepost/heartbleed-poc.git
-
-#echo "Discoverの導入"
-#rm -r /home/kali/discover
-#git clone https://github.com/leebaird/discover.git /home/kali/discover
-#cd /home/kali/discover && ./update.sh
 
 read -p "いったん確認"
 
@@ -142,3 +132,16 @@ echo "Web Developerアドオン"
 echo "Tamper Data"
 echo "Foxy Proxy"
 echo "User Agent Switcher"
+
+
+#echo "Discoverの導入"
+#rm -r /home/kali/discover
+#git clone https://github.com/leebaird/discover.git /home/kali/discover
+#cd /home/kali/discover && ./update.sh
+
+#echo "OpenVASのインストールと起動"
+#apt install -y gvm 
+#gvm-setup
+#gvm-start
+
+
