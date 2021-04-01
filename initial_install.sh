@@ -114,12 +114,24 @@ echo "nishangの導入"
 apt install nishang
 
 echo "CMSmapの導入"
-rm -r
+rm -r /home/kali/CMSmap
 cd /home/kali
 git clone https://github.com/Dionach/CMSmap
 
-echo "Apache配下への移動"
+echo "Powersploitの導入"
+apt install powersploit
 
+echo "Apache配下にシンボリックリンクを作成"
+cd /home/kali
+ln -s /usr/share/windows-resources/ windows-resources 
+mv windows-resouces /var/www/html/
+ln -s /usr/share/windows-resources/ windows-resources 
+mv windows-binaries /var/www/html/
+
+echo "Easy-Pの導入"
+cd /home/kali
+rm -r /home/kali/Easy-P
+git clone https://github.com/cheetz/Easy-P.git /home/kali/Easy-P
 
 echo "次のブラウザアドオンを導入します"
 echo "Web Developerアドオン"
