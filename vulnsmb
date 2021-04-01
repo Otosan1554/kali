@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "指定された引数は$#個です。"
+  exit 1
+fi
+
+IP=$1
+
+
+#!/usr/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo "指定された引数は$#個です。"
+  exit 1
+fi
+
+IP=$1
+
+sudo nmap -Pn -n -sV --open -p T:139,445,U:137 --script=smb-vuln*,smb-enum-users,smb-os-discovery --script-args unsafe -oN /home/kali/Lab/$IP/Vulns_SMB1.txt $IP
+
+nmap -Pn -n -sV --open -p 139,445 --script=samba-vuln-cve-2012-1182 -oN /home/kali/Lab/$IP/Vulns_SMB2.txt $IP
+
+
