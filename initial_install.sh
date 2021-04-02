@@ -138,7 +138,7 @@ echo "Web Developerアドオン"
 echo "Tamper Data"
 echo "Foxy Proxy"
 echo "User Agent Switcher"
-
+echo "Wappalyzer"
 
 #echo "Discoverの導入"
 #rm -r /home/kali/discover
