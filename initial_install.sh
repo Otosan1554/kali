@@ -133,6 +133,9 @@ cd /home/kali
 rm -r /home/kali/Easy-P
 git clone https://github.com/cheetz/Easy-P.git /home/kali/Easy-P
 
+echo "gobusterの導入"
+apt install gobuster
+
 echo "次のブラウザアドオンを導入します"
 echo "Web Developerアドオン"
 echo "Tamper Data"
