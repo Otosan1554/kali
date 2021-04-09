@@ -41,9 +41,6 @@ sudo apt-get install gcc-multilib
 echo "ポート転送ツールの導入"
 sudo apt install rinetd
 
-echo "seclistsの導入"
-sudo apt-get install seclists
-
 echo "Powercatの導入"
 sudo apt install powercat
 
@@ -121,12 +118,14 @@ git clone https://github.com/Dionach/CMSmap
 echo "Powersploitの導入"
 apt install powersploit
 
-echo "Apache配下にシンボリックリンクを作成"
-cd /home/kali
-ln -s /usr/share/windows-resources/ windows-resources 
-mv windows-resouces /var/www/html/
-ln -s /usr/share/windows-resources/ windows-resources 
-mv windows-binaries /var/www/html/
+echo "Apache配下を作成"
+cp -R /usr/share/windows-resources /var/www/html/windows-resources 
+cp -R /usr/share/windows-binaries /var/www/html/windows-binaries 
+cp -R /usr/share/windows-privesc-check /var/www/html/windows-privesc-check 
+cp -R /usr/share/webshells /var/www/html/webshells 
+cp -R /usr/share/nishang /var/www/html/nishang 
+cp -R /usr/share/unix-privesc-check /var/www/html/unix-privesc-check 
+
 
 echo "Easy-Pの導入"
 cd /home/kali
