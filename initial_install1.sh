@@ -119,12 +119,13 @@ echo "Powersploitの導入"
 apt install powersploit
 
 echo "Apache配下を作成"
-cp -R /usr/share/windows-resources /var/www/html/windows-resources 
-cp -R /usr/share/windows-binaries /var/www/html/windows-binaries 
-cp -R /usr/share/windows-privesc-check /var/www/html/windows-privesc-check 
-cp -R /usr/share/webshells /var/www/html/webshells 
-cp -R /usr/share/nishang /var/www/html/nishang 
-cp -R /usr/share/unix-privesc-check /var/www/html/unix-privesc-check 
+mkdir /var/www2/html/
+cp -R /usr/share/windows-resources /var/www2/html/windows-resources 
+cp -R /usr/share/windows-binaries /var/www2/html/windows-binaries 
+cp -R /usr/share/windows-privesc-check /var/www2/html/windows-privesc-check 
+cp -R /usr/share/webshells /var/www2/html/webshells 
+cp -R /usr/share/nishang /var/www2/html/nishang 
+cp -R /usr/share/unix-privesc-check /var/www2/html/unix-privesc-check 
 
 
 echo "Easy-Pの導入"
