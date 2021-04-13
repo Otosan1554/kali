@@ -142,6 +142,9 @@ apt install gobuster
 echo "ffufの導入"
 apt install ffuf
 
+echo "terminaorの導入"
+apt install terminator
+
 echo "次のブラウザアドオンを導入します"
 echo "Web Developerアドオン"
 echo "Tamper Data"
