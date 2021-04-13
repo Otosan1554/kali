@@ -2,6 +2,9 @@
 
 read -p "アンチウィルスを停止しましたか？"
 
+mkdir /root/tools
+mkdir /root/www
+
 echo "ソースリストの更新"
 sudo apt -y update 
 
@@ -23,8 +26,8 @@ sudo msfdb init
 echo "Searchsploitの更新"
 sudo searchsploit -u
 
-echo "ApacheをEnableにする"
-sudo systemctl enable apache2
+#echo "ApacheをEnableにする"
+#sudo systemctl enable apache2
 
 echo "VNC Viewerのインストール"
 sudo apt-get install tigervnc-viewer
@@ -66,12 +69,12 @@ echo "Autoreconの導入"
 pip install git+https://github.com/Tib3rius/AutoRecon.git
 
 echo "onetwopunchの導入"
-rm /home/kali/onetwopunch.sh
-cd /home/kali
+rm /root/onetwopunch.sh
+cd /root
 git clone https://github.com/superkojiman/onetwopunch
-cp /home/kali/onetwopunch/onetwopunch.sh /home/kali/onetwopunch.sh
-rm -r /home/kali/onetwopunch
-sudo chmod 777 /home/kali/onetwopunch.sh
+cp /root/onetwopunch/onetwopunch.sh /root/tools/onetwopunch.sh
+rm -r /root/onetwopunch
+sudo chmod 777 /root/tools/onetwopunch.sh
 
 read -p "いったん確認"
 
@@ -84,7 +87,7 @@ echo "exifの導入"
 sudo apt install exif
 
 echo "bruteforce-http-authの導入"
-cd /home/kali
+cd /root/tools
 git clone https://github.com/erforschr/bruteforce-http-auth.git
 cd bruteforce-http-auth
 python3 -m pip install -r requirements.txt
@@ -93,14 +96,14 @@ echo "parseroの導入"
 apt install parsero
 
 echo "Heartbleed exploitの導入"
-cd /home/kali
+cd /root/tools
 git clone https://github.com/sensepost/heartbleed-poc.git
 
 read -p "いったん確認"
 
 echo "SMBexecの導入"
-rm -r /home/kali/smbexec
-git clone https://github.com/brav0hax/smbexec.git /home/kali/smbexec
+rm -r /root/tools/smbexec
+git clone https://github.com/brav0hax/smbexec.git /root/tools/smbexec
 cd smbexec
 ./install.sh
 
@@ -111,8 +114,8 @@ echo "nishangの導入"
 apt install nishang
 
 echo "CMSmapの導入"
-rm -r /home/kali/CMSmap
-cd /home/kali
+rm -r /root/tools/CMSmap
+cd /root/tools
 git clone https://github.com/Dionach/CMSmap
 
 echo "Powersploitの導入"
@@ -120,24 +123,24 @@ apt install powersploit
 
 echo "Apache配下を作成"
 mkdir /var/www2/html/
-cp -R /usr/share/windows-resources /var/www2/html/windows-resources 
-cp -R /usr/share/windows-binaries /var/www2/html/windows-binaries 
-cp -R /usr/share/windows-privesc-check /var/www2/html/windows-privesc-check 
-cp -R /usr/share/webshells /var/www2/html/webshells 
-cp -R /usr/share/nishang /var/www2/html/nishang 
-cp -R /usr/share/unix-privesc-check /var/www2/html/unix-privesc-check 
+cp -R /usr/share/windows-resources /root/www/windows-resources 
+cp -R /usr/share/windows-binaries /root/www/windows-binaries 
+cp -R /usr/share/windows-privesc-check /root/www/windows-privesc-check 
+cp -R /usr/share/webshells /root/www/webshells 
+cp -R /usr/share/nishang /root/www/nishang 
+cp -R /usr/share/unix-privesc-check /root/www/unix-privesc-check 
 
 
 echo "Easy-Pの導入"
-cd /home/kali
-rm -r /home/kali/Easy-P
-git clone https://github.com/cheetz/Easy-P.git /home/kali/Easy-P
+cd /root/tools
+rm -r /root/tools/Easy-P
+git clone https://github.com/cheetz/Easy-P.git /root/tools/Easy-P
 
 echo "gobusterの導入"
 apt install gobuster
 
 echo "ffufの導入"
-apt install gobuster
+apt install ffuf
 
 echo "次のブラウザアドオンを導入します"
 echo "Web Developerアドオン"
