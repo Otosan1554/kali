@@ -1,11 +1,17 @@
 #!/usr/bin/bash
 
-for arg; do
-    a=$(find /usr/share/exploitdb/ -name ${arg})
-    echo $a
-#    b=$(cat $a | wc -l)
-#    echo $b
-#    if [ $b = 1 ]; then
-         cp $a /home/kali/sandbox/
-#    fi    
+read -p "IP > " IP
+read -p "Exploit_name >" exploit_name
+
+if [ -d /root/Lab/$IP/sandbox ]; then
+	echo ""
+else
+	mkdir /root/Lab/$IP/sandbox
+fi
+
+find /usr/share/exploitdb/ -name "$exploit_name"  | while read -r fname
+do
+  echo "$fname copied"
+  cp $fname /root/Lab/$IP/sandbox
 done
+

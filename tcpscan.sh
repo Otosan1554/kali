@@ -6,30 +6,27 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-if [ -d /home/kali/Lab/ ]; then
+if [ -d /root/Lab/ ]; then
 	echo ""
 else
-	mkdir /home/kali/Lab/
+	mkdir /root/Lab/
 fi
 
-
-if [ -d /home/kali/Lab/$IP/ ]; then
+if [ -d /root/Lab/$IP ]; then
 	echo ""
 else
-	mkdir /home/kali/Lab/$IP
+	mkdir /root/Lab/$IP
 fi
 
-sudo nmap -n -vv --reason -Pn --osscan-guess -sS -p- -v -T 4 -oN /home/kali/Lab/$IP/TCP_Portscan.nmap $IP
+rm -R /root/Lab/$IP/Scan
+mkdir /root/Lab/$IP/Scan
+
+nmap -n -vv --reason -Pn --osscan-guess -sS -p- -v -T 4 -oN /root/Lab/$IP/TCP_Portscan.nmap $IP
 a=""
-for x in $(grep "/tcp" /home/kali/Lab/$IP/TCP_Portscan.nmap | cut -d "/" -f 1); do
+for x in $(grep "/tcp" /root/Lab/$IP/TCP_Portscan.nmap | cut -d "/" -f 1); do
 	a=$a","$x
 done
 b=${a:1}
 c="-p "$b
 
-echo $c
-
-nmap -n -Pn -sV -vv $c -T 4 -sC -oN /home/kali/Lab/$IP/TCP_sV.nmap $IP
-
-
-
+nmap -n -Pn -sV -vv $c -T 4 -sC -oN /root/Lab/$IP/TCP_sV.nmap $IP
